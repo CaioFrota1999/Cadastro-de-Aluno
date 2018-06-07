@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="616.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaapplication6.FXMLFormularioController">
+   <children>
+      <TextField fx:id="nomeTextField" layoutX="209.0" layoutY="82.0" prefHeight="25.0" prefWidth="435.0" />
+      <TextField fx:id="sobrenomeTextField" layoutX="208.0" layoutY="118.0" prefHeight="25.0" prefWidth="435.0" />
+      <TextField fx:id="emailTextField" layoutX="208.0" layoutY="152.0" onAction="#cadastrarButtonClicked" prefHeight="25.0" prefWidth="435.0" />
+      <Label layoutY="252.0" prefHeight="21.0" prefWidth="149.0" text="Matricula">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="anoTextField" layoutX="507.0" layoutY="185.0" prefHeight="25.0" prefWidth="135.0" />
+      <Label layoutY="84.0" prefHeight="17.0" prefWidth="87.0" text="Nome">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutY="120.0" prefHeight="17.0" prefWidth="87.0" text="Sobrenome">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutY="154.0" prefHeight="17.0" prefWidth="87.0" text="E-mail">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutY="187.0" prefHeight="21.0" prefWidth="141.0" text="Data de Nascimento">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutY="221.0" prefHeight="21.0" prefWidth="141.0" text="Curso">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cursoComboBox" layoutX="208.0" layoutY="219.0" prefHeight="25.0" prefWidth="355.0" />
+      <TextField fx:id="matriTextField" layoutX="209.0" layoutY="250.0" prefHeight="25.0" prefWidth="435.0" />
+      <Button layoutX="208.0" layoutY="308.0" mnemonicParsing="false" onAction="#cadastrarButtonClicked" prefHeight="8.0" prefWidth="87.0" text="Cadastrar" />
+      <TextField fx:id="mesTextField" layoutX="363.0" layoutY="185.0" prefHeight="25.0" prefWidth="141.0" />
+      <TextField fx:id="diaTextField" layoutX="208.0" layoutY="185.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutY="281.0" prefHeight="21.0" prefWidth="149.0" text="Notas">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nota1TextField" layoutX="208.0" layoutY="279.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="nota2TextField" layoutX="363.0" layoutY="279.0" prefHeight="25.0" prefWidth="141.0" />
+      <TextField fx:id="nota3TextField" layoutX="507.0" layoutY="279.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextArea fx:id="impressaoTextArea" layoutX="208.0" layoutY="341.0" prefHeight="200.0" prefWidth="435.0" />
+      <Button layoutX="209.0" layoutY="547.0" mnemonicParsing="false" onAction="#cadastrarButtonClicked" prefHeight="8.0" prefWidth="87.0" text="← Anterior">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="545.0" layoutY="547.0" mnemonicParsing="false" onAction="#cadastrarButtonClicked" prefHeight="29.0" prefWidth="105.0" text="Proximo →">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="563.0" layoutY="583.0" mnemonicParsing="false" onAction="#cadastrarButtonClicked" prefHeight="25.0" prefWidth="87.0" text="Excluir" />
+   </children>
+</AnchorPane>
