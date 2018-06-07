@@ -7,7 +7,7 @@ public class ClasseAluno extends ClassePessoa {
     private float nota1;
     private float nota2;
     private float nota3;
-
+   ///comentário teste
     public ClasseAluno(String nome, String sobrenome, String email, int dia, int mes, int ano, int nmatricula, String curso, float nota1, float nota2, float nota3) {
 
         this.curso = curso;
