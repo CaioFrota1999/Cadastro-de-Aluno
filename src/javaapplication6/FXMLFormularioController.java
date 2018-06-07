@@ -37,7 +37,10 @@ private TextField nota2TextField;
 private TextField nota3TextField;
 @FXML
 private TextArea impressaoTextArea;
-@FXML
+
+///Instanciei logo a classe aqui no controlado do FX com um nome sugestivo
+private ArrayController controle = new ArrayController();
+
 private void cadastrarButtonClicked(){
     System.out.println("Botão Clicado");
     ClasseAluno obj1 = new ClasseAluno();
@@ -53,8 +56,9 @@ private void cadastrarButtonClicked(){
     
     ArrayList<ClasseAluno> universitario = new ArrayList();
     universitario.add(obj1);
-    
-    
+    ///método para adicionar o novo aluno já adicionado
+    controle.addNewAluno(obj1);
+    ///sugestão apague esssa parte da exibição aqui do controle e adiciona para dentro da classe ArrayController que fica mais elegante 
     String texto = "";
     texto += "Nome: " + nomeTextField.getText() + " " + sobrenomeTextField.getText() +  "\n";
     texto += "Email: " + emailTextField.getText() + "\n";
@@ -63,8 +67,12 @@ private void cadastrarButtonClicked(){
     texto += "Curso: " + cursoComboBox.getSelectionModel().getSelectedItem().toString() + "\n";
     texto += "Matricula: " + matriTextField.getText() + "\n" ;
     texto += "Notas: " + nota1TextField.getText()+".0" + ", " + nota2TextField.getText() + ".0" + ", " + nota3TextField.getText()+ ".0" + "\n";
-    impressaoTextArea.setText(texto);
+    ///apague até aqui
     
+    ////altera a linha 74 para impessaoTextArea.setText(controle.getUltimoAluno());
+    /// depois que cria os métodos lá na classe ArrayController
+    impressaoTextArea.setText(texto);
+   
 }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
