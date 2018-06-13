@@ -118,7 +118,7 @@ public class FXMLFormularioController implements Initializable {
         fiscalizador.add(nota2TextField);
         fiscalizador.add(nota3TextField);
         for (int x = 0; x < fiscalizador.size(); x++) {
-            if (fiscalizador.get(x).getText() == null) {
+            if (fiscalizador.get(x).getText() == null || fiscalizador.get(x).getText() == "" || fiscalizador.get(x).getText().isEmpty()) {
                 return true;
             }
         }
