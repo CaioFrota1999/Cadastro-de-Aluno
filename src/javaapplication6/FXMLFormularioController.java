@@ -64,12 +64,12 @@ public class FXMLFormularioController implements Initializable {
             int dia = Integer.parseInt(diaTextField.getText());
             int mes = Integer.parseInt(mesTextField.getText());
             int ano = Integer.parseInt(anoTextField.getText());
-                    
-            if(DataCorreta(dia,mes,ano)) {
+
+            if (DataCorreta(dia, mes, ano)) {
                 obj1.setDia(Integer.parseInt(diaTextField.getText()));
                 obj1.setMes(Integer.parseInt(mesTextField.getText()));
                 obj1.setAno(Integer.parseInt(anoTextField.getText()));
-            } 
+            }
             obj1.setNmatricula(matriTextField.getText());
             try {
                 obj1.setNota1(Float.parseFloat(nota1TextField.getText()));
@@ -78,12 +78,11 @@ public class FXMLFormularioController implements Initializable {
             } catch (Exception ex) {
                 preenchimento = false;
                 JOptionPane.showMessageDialog(null, "Insira uma data válida");
-                
+
             }
-            
-            
+
             if (preenchimento && !campovazio()) {
-               
+
                 nomeTextField.clear();
                 sobrenomeTextField.clear();
                 emailTextField.clear();
@@ -99,8 +98,8 @@ public class FXMLFormularioController implements Initializable {
                 controle.addNewAluno(obj1);
                 impressaoTextArea.setText(controle.getUltimoAlunoCadastrado());
             }
-        }else{
-           JOptionPane.showMessageDialog(null, "Campo vazio");
+        } else {
+            JOptionPane.showMessageDialog(null, "Campo vazio");
         }
         // Limpando os campos para cadastrar o próximo aluno
 
@@ -137,15 +136,17 @@ public class FXMLFormularioController implements Initializable {
     public void proxButtonClicked() {
         impressaoTextArea.setText(controle.getProximoAluno());
     }
-    private boolean DataCorreta(int dia,int mes,int ano){
-      try{
-         LocalDate teste = LocalDate.of(ano,mes, ano);
-         
-      }catch(Exception ex){
-        return false;
-      }
-      return true;
+
+    private boolean DataCorreta(int dia, int mes, int ano) {
+        try {
+            LocalDate teste = LocalDate.of(ano, mes, dia);
+
+        } catch (Exception ex) {
+            return false;
+        }
+        return true;
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cursoComboBox.getItems().addAll(
