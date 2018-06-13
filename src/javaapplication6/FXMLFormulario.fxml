@@ -16,8 +16,8 @@
       <TextField fx:id="diaTextField" layoutX="208.0" layoutY="185.0" prefHeight="25.0" prefWidth="149.0" />
       <TextField fx:id="mesTextField" layoutX="363.0" layoutY="185.0" prefHeight="25.0" prefWidth="141.0" />
       <TextField fx:id="anoTextField" layoutX="507.0" layoutY="185.0" prefHeight="25.0" prefWidth="135.0" />
-      <TextField fx:id="matriTextField" layoutX="209.0" layoutY="250.0" prefHeight="25.0" prefWidth="435.0" />
       <ComboBox fx:id="cursoComboBox" layoutX="208.0" layoutY="219.0" prefHeight="25.0" prefWidth="355.0" promptText="Escolha seu curso " />
+      <TextField fx:id="matriTextField" layoutX="209.0" layoutY="250.0" prefHeight="25.0" prefWidth="435.0" />
       <Label layoutY="252.0" prefHeight="21.0" prefWidth="149.0" text="Matricula" textFill="#faff00">
          <font>
             <Font name="System Bold Italic" size="15.0" />
