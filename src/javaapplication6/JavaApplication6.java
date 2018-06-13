@@ -1,11 +1,10 @@
-
 package javaapplication6;
+
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
-import java.net.URL;
 import javafx.scene.Scene;
 
 

@@ -1,7 +1,11 @@
 package javaapplication6;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public abstract class ClassePessoa {
 
+    // Atributos da Classe Pessoa
     private String nome;
     private String sobrenome;
     private String email;
@@ -9,47 +13,31 @@ public abstract class ClassePessoa {
     private int mes;
     private int ano;
 
-    /**
-     * @param nome the nome to set
-     */
+    //Métodos set da Classe Aluno
     protected void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @param sobrenome the sobrenome to set
-     */
     protected void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
 
-    /**
-     * @param email the email to set
-     */
     protected void setEmail(String email) {
         this.email = email;
     }
 
-    /**
-     * @param dia the dia to set
-     */
     protected void setDia(int dia) {
         this.dia = dia;
     }
 
-    /**
-     * @param mes the mes to set
-     */
     protected void setMes(int mes) {
         this.mes = mes;
     }
 
-    /**
-     * @param ano the ano to set
-     */
     protected void setAno(int ano) {
         this.ano = ano;
     }
+    // Métodos get da Classe Aluno
 
     protected String getNome() {
         return nome;
@@ -75,12 +63,16 @@ public abstract class ClassePessoa {
         return ano;
     }
 
+    // Métodos auxiliares da Classe Pessoa
     protected String nomeCompleto() {
         return this.getNome() + " " + this.getSobrenome();
     }
 
     protected int idadeAluno() {
-        return 2018 - this.getAno();
+        LocalDate aniversario = LocalDate.of(ano,mes,dia);
+        LocalDate dataAtual = LocalDate.now();
+        Period periodo = Period.between(aniversario, dataAtual);
+        return periodo.getYears();
     }
 
     protected String dataNascimento() {

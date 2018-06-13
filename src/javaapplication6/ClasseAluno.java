@@ -1,14 +1,15 @@
 package javaapplication6;
 
 public class ClasseAluno extends ClassePessoa {
-
-    private int nmatricula;
+    // Atributos da Classe Aluno
+    private String nmatricula;
     private String curso;
     private float nota1;
     private float nota2;
     private float nota3;
-   ///comentário teste
-    public ClasseAluno(String nome, String sobrenome, String email, int dia, int mes, int ano, int nmatricula, String curso, float nota1, float nota2, float nota3) {
+   
+    // Método Construtor da Classe Aluno
+    public ClasseAluno(String nome, String sobrenome, String email, int dia, int mes, int ano, String nmatricula, String curso, float nota1, float nota2, float nota3) {
 
         this.curso = curso;
         this.nmatricula = nmatricula;
@@ -21,41 +22,40 @@ public class ClasseAluno extends ClassePessoa {
 
     }
 
-    /**
-     * @param nmatricula the nmatricula to set
-     */
-    public void setNmatricula(int nmatricula) {
+    // Métodos get dos Atributos
+    public void setNmatricula(String nmatricula) {
         this.nmatricula = nmatricula;
     }
-
-    /**
-     * @param curso the curso to set
-     */
+    
     public void setCurso(String curso) {
         this.curso = curso;
     }
 
-    /**
-     * @param nota1 the nota1 to set
-     */
+
     public void setNota1(float nota1) {
         this.nota1 = nota1;
     }
 
-    /**
-     * @param nota2 the nota2 to set
-     */
+    
     public void setNota2(float nota2) {
         this.nota2 = nota2;
     }
 
-    /**
-     * @param nota3 the nota3 to set
-     */
+    
     public void setNota3(float nota3) {
         this.nota3 = nota3;
     }
 
+    // Métodos get da Claase Aluno
+    public String getCurso(){
+        return curso;
+    }
+    
+    
+    public String getNMatricula(){
+        return nmatricula;
+    }
+    
     public float getNota1() {
         return nota1;
     }
@@ -81,6 +81,21 @@ public class ClasseAluno extends ClassePessoa {
         } else {
             return "Aluno reprovado";
         }
+    }
+    @Override
+    public String toString(){
+    String texto = "";
+    
+    texto += "Nome: " + nomeCompleto() +  "\n";
+    texto += "Email: " + getEmail() + "\n";
+    texto  += "Data de Nascimento: " + dataNascimento() + "\n";
+    texto += "Idade: " + idadeAluno()  + "\n";
+    texto += "Curso: " + getCurso() + "\n";
+    texto += "Matricula: " + getNMatricula() + "\n" ;
+    texto += "Notas: " + getNota1() + ", " + getNota2() + ", " + getNota3() + "\n";
+    texto += "Media: " + getMedia() + "\n";
+    texto += "Situaco: " + getSituacao();
+     return texto;
     }
 
 }
