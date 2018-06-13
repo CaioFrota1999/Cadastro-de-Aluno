@@ -126,7 +126,13 @@ public class FXMLFormularioController implements Initializable {
     }
 
     public void excluirButtonClicked() {
-        controle.excluirAluno();
+        if (controle.excluirAluno() && controle.getQuantidade() == 0) {
+            impressaoTextArea.setText("");
+        } else if (!controle.excluirAluno()) {
+            JOptionPane.showMessageDialog(null, "Lista vazia");
+        } else {
+            proxButtonClicked();
+        }
     }
 
     public void anteButtonClicked() {
