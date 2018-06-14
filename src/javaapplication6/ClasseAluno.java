@@ -89,7 +89,7 @@ public class ClasseAluno extends ClassePessoa {
     texto += "Nome: " + nomeCompleto() +  "\n";
     texto += "Email: " + getEmail() + "\n";
     texto  += "Data de Nascimento: " + dataNascimento() + "\n";
-    texto += "Idade: " + idadeAluno()  + "\n";
+    texto += "Idade: " + idadeAluno() + "anos"  + "\n";
     texto += "Curso: " + getCurso() + "\n";
     texto += "Matricula: " + getNMatricula() + "\n" ;
     texto += "Notas: " + getNota1() + ", " + getNota2() + ", " + getNota3() + "\n";
