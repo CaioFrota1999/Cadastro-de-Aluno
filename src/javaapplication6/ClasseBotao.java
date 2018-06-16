@@ -1,36 +1,44 @@
 package javaapplication6;
+//Importações da ClasseBotão
 
 import java.util.ArrayList;
 
-public class ClasseBotao {
+public class ClasseBotao { // Classe criada para um melhor gerenciamento e controle sobre os botões e o ArrayList
 
     ArrayList<ClasseAluno> universitarios = new ArrayList<ClasseAluno>();
     private int index = 0;
 
-    ///Essa função vc vai usar quando aperta no botão de "cadastrar"
-    ///Função para adicionar um novo aluno no arrayList
+    //Método para adicionar um novo aluno no ArrayList
     public void addNewAluno(ClasseAluno novo) {
         universitarios.add(novo);
 
     }
-    public int getQuantidade(){
-       return universitarios.size();
+
+    public int getQuantidade() {
+        return universitarios.size();
     }
+
     /*
-      O gerenciamento do array ocorrerá nessas 3 funções a baixo
+      O gerenciamento do array ocorrerá nesses 3 métodos a baixo
      */
-    public String getProximoAluno() {
+    public String getProximoAluno() { // Index incrementa e caso index e tamanho do ArrayList sejam iguais,index receberá 0
         index++;
         if (index == universitarios.size()) {
             index = 0;
         }
+        if (universitarios.size() == 0) {
+            return "Lista vázia";
+        }
         return "Pos: " + (index + 1) + "\n" + universitarios.get(index).toString();
     }
 
-    public String getAlunoAnterior() {
+    public String getAlunoAnterior() { // Funciona de maneira análoga ao método anterior
         index--;
         if (index < 0) {
             index = universitarios.size() - 1;
+        }
+        if (universitarios.size() == 0) {
+            return "Lista vázia";
         }
 
         return "Pos: " + (index + 1) + "\n" + universitarios.get(index).toString();

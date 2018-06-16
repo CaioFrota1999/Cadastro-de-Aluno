@@ -1,6 +1,7 @@
 package javaapplication6;
 
-public class ClasseAluno extends ClassePessoa {
+public class ClasseAluno extends ClassePessoa { /* Como o pdf pede,a ClasseAluno herda
+                                                da ClassePessoa */
     // Atributos da Classe Aluno
     private String nmatricula;
     private String curso;
@@ -8,7 +9,7 @@ public class ClasseAluno extends ClassePessoa {
     private float nota2;
     private float nota3;
    
-    // Método Construtor da Classe Aluno
+    // Método Construtor da ClasseAluno
     public ClasseAluno(String nome, String sobrenome, String email, int dia, int mes, int ano, String nmatricula, String curso, float nota1, float nota2, float nota3) {
 
         this.curso = curso;
@@ -22,7 +23,7 @@ public class ClasseAluno extends ClassePessoa {
 
     }
 
-    // Métodos get dos Atributos
+    // Métodos set dos Atributos da ClasseAluno
     public void setNmatricula(String nmatricula) {
         this.nmatricula = nmatricula;
     }
@@ -46,7 +47,7 @@ public class ClasseAluno extends ClassePessoa {
         this.nota3 = nota3;
     }
 
-    // Métodos get da Claase Aluno
+    // Métodos get da ClaaseAluno
     public String getCurso(){
         return curso;
     }
@@ -72,7 +73,7 @@ public class ClasseAluno extends ClassePessoa {
         return (nota1 + nota2 + nota3) / 3;
     }
 
-    public String getSituacao() {
+    public String getSituacao() { // Método que retornará uma String contendo a situação do aluno cadastrado
 
         if ((this.getMedia() >= 7.0)) {
             return "Aprovado por media";
@@ -83,13 +84,13 @@ public class ClasseAluno extends ClassePessoa {
         }
     }
     @Override
-    public String toString(){
+    public String toString(){ // Método que ficará encarregado de imprimir os dados dos alunos
     String texto = "";
     
     texto += "Nome: " + nomeCompleto() +  "\n";
     texto += "Email: " + getEmail() + "\n";
     texto  += "Data de Nascimento: " + dataNascimento() + "\n";
-    texto += "Idade: " + idadeAluno() + "anos"  + "\n";
+    texto += "Idade: " + idadeAluno() + " anos"  + "\n";
     texto += "Curso: " + getCurso() + "\n";
     texto += "Matricula: " + getNMatricula() + "\n" ;
     texto += "Notas: " + getNota1() + ", " + getNota2() + ", " + getNota3() + "\n";

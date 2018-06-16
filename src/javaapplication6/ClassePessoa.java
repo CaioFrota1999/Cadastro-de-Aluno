@@ -1,10 +1,10 @@
 package javaapplication6;
-
+// Importações utilizadas na ClassePessoa
 import java.time.LocalDate;
 import java.time.Period;
 
-public abstract class ClassePessoa {
-
+public abstract class ClassePessoa { /* ClassePessoa do tipo abstract já que
+                                        servirá como superclasse para a ClasseAluno */  
     // Atributos da Classe Pessoa
     private String nome;
     private String sobrenome;
@@ -14,6 +14,7 @@ public abstract class ClassePessoa {
     private int ano;
 
     //Métodos set da Classe Aluno
+    // Todos os métodos dessa superclasse terão que ser usandos nas subclasses por isso protected
     protected void setNome(String nome) {
         this.nome = nome;
     }
@@ -68,7 +69,7 @@ public abstract class ClassePessoa {
         return this.getNome() + " " + this.getSobrenome();
     }
 
-    protected int idadeAluno() {
+    protected int idadeAluno() { // Método que retornará a idade do aluno usando as importações
         LocalDate aniversario = LocalDate.of(ano,mes,dia);
         LocalDate dataAtual = LocalDate.now();
         Period periodo = Period.between(aniversario, dataAtual);

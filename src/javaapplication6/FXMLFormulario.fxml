@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -18,14 +19,14 @@
       <TextField fx:id="anoTextField" layoutX="507.0" layoutY="185.0" prefHeight="25.0" prefWidth="135.0" />
       <ComboBox fx:id="cursoComboBox" layoutX="208.0" layoutY="219.0" prefHeight="25.0" prefWidth="355.0" promptText="Escolha seu curso " />
       <TextField fx:id="matriTextField" layoutX="209.0" layoutY="250.0" prefHeight="25.0" prefWidth="435.0" />
+      <TextField fx:id="nota1TextField" layoutX="208.0" layoutY="279.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="nota2TextField" layoutX="363.0" layoutY="279.0" prefHeight="25.0" prefWidth="141.0" />
+      <TextField fx:id="nota3TextField" layoutX="507.0" layoutY="279.0" prefHeight="25.0" prefWidth="135.0" />
       <Label layoutY="252.0" prefHeight="21.0" prefWidth="149.0" text="Matricula" textFill="#faff00">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="nota1TextField" layoutX="208.0" layoutY="279.0" prefHeight="25.0" prefWidth="149.0" />
-      <TextField fx:id="nota2TextField" layoutX="363.0" layoutY="279.0" prefHeight="25.0" prefWidth="141.0" />
-      <TextField fx:id="nota3TextField" layoutX="507.0" layoutY="279.0" prefHeight="25.0" prefWidth="135.0" />
       <Label layoutY="84.0" prefHeight="17.0" prefWidth="87.0" text="Nome" textFill="#faff00">
          <font>
             <Font name="System Bold Italic" size="15.0" />
@@ -72,11 +73,16 @@
          </font>
       </Button>
       <Button fx:id="excluirButton" layoutX="563.0" layoutY="583.0" mnemonicParsing="false" onAction="#excluirButtonClicked" prefHeight="25.0" prefWidth="87.0" text="Excluir" />
-      <TextField alignment="CENTER" layoutX="9.0" layoutY="8.0" prefHeight="25.0" prefWidth="634.0" text="Controle de Aluno">
+      <TextField alignment="CENTER" layoutX="9.0" layoutY="8.0" prefHeight="25.0" prefWidth="634.0" style="-fx-background-color: yellow;" text="Controle de Aluno">
          <font>
             <Font name="System Bold" size="11.0" />
          </font>
       </TextField>
+      <ImageView fx:id="imagem" fitHeight="150.0" fitWidth="190.0" layoutX="9.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagem/batman.jpg" />
+         </image>
+      </ImageView>
    </children>
    <effect>
       <Lighting diffuseConstant="1.65" specularConstant="0.0" specularExponent="0.0" surfaceScale="1.03">

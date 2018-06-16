@@ -1,4 +1,5 @@
 package javaapplication6;
+// Importações utilizadas
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -11,10 +12,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.Period;
+import javafx.scene.image.ImageView;
 
 public class FXMLFormularioController implements Initializable {
+// Definindo todos os controles que fará a ligação entre o código e a interface como sugerido no pdf da Prática 05
 
     @FXML
     private TextField nomeTextField;
@@ -48,16 +49,18 @@ public class FXMLFormularioController implements Initializable {
     private Button excluirButton;
     @FXML
     private TextArea impressaoTextArea;
+    @FXML
+    private ImageView imagem;
 
 ///Instanciei logo a classe aqui no controlado do FX com um nome sugestivo
     private ClasseBotao controle = new ClasseBotao();
 
     public void cadastrarButtonClicked() {
-        boolean preenchimento = true;
+        boolean preenchimento = true; // Definindo uma variável do tipo booleana para verificar os campos
 
-        if (!campovazio()) {
-            ClasseAluno obj1 = new ClasseAluno();
-            obj1.setNome(nomeTextField.getText());
+        if (!campovazio()) {  // if usado para caso o campo esteja preenchido
+            ClasseAluno obj1 = new ClasseAluno();  //instanciando obj do tipo ClasseAluno
+            obj1.setNome(nomeTextField.getText()); //getText usado para retornar a String em áreaas de textos
             obj1.setSobrenome(sobrenomeTextField.getText());
             obj1.setEmail(emailTextField.getText());
             obj1.setCurso(cursoComboBox.getSelectionModel().getSelectedItem().toString());
@@ -69,44 +72,46 @@ public class FXMLFormularioController implements Initializable {
                 obj1.setDia(Integer.parseInt(diaTextField.getText()));
                 obj1.setMes(Integer.parseInt(mesTextField.getText()));
                 obj1.setAno(Integer.parseInt(anoTextField.getText()));
-            }
-            obj1.setNmatricula(matriTextField.getText());
-            try {
-                obj1.setNota1(Float.parseFloat(nota1TextField.getText()));
-                obj1.setNota2(Float.parseFloat(nota2TextField.getText()));
-                obj1.setNota3(Float.parseFloat(nota3TextField.getText()));
-            } catch (Exception ex) {
-                preenchimento = false;
-                JOptionPane.showMessageDialog(null, "Insira uma data válida");
+            } else {
+                obj1.setNmatricula(matriTextField.getText());
+                try { // Tendo em mente a situação do usuário colocar alguma nota inválida usamos o try para desviar pro catch e assim não haverá paradad brusca na execução do código
+                    obj1.setNota1(Float.parseFloat(nota1TextField.getText()));
+                    obj1.setNota2(Float.parseFloat(nota2TextField.getText()));
+                    obj1.setNota3(Float.parseFloat(nota3TextField.getText()));
+                } catch (Exception ex) { // Sendo desviado o programa iinformará uma alerta usando JOptionPane
+                    preenchimento = false;
+                    JOptionPane.showMessageDialog(null, "Insira uma nota válida");
 
-            }
+                }
 
-            if (preenchimento && !campovazio()) {
+                if (preenchimento && !campovazio()) { // Caso as duas condições ocorram simultaneamente...
 
-                nomeTextField.clear();
-                sobrenomeTextField.clear();
-                emailTextField.clear();
-                diaTextField.clear();
-                mesTextField.clear();
-                anoTextField.clear();
-                matriTextField.clear();
-                nota1TextField.clear();
-                nota2TextField.clear();
-                nota3TextField.clear();
+                    nomeTextField.clear(); // Cada campo será limpado através do método clear()
+                    sobrenomeTextField.clear();
+                    emailTextField.clear();
+                    diaTextField.clear();
+                    mesTextField.clear();
+                    anoTextField.clear();
+                    matriTextField.clear();
+                    nota1TextField.clear();
+                    nota2TextField.clear();
+                    nota3TextField.clear();
 
 // Método para adicionar o novo aluno adicionado
-                controle.addNewAluno(obj1);
-                impressaoTextArea.setText(controle.getUltimoAlunoCadastrado());
+                    controle.addNewAluno(obj1);
+                    impressaoTextArea.setText(controle.getUltimoAlunoCadastrado());
+                }
+
             }
+
         } else {
             JOptionPane.showMessageDialog(null, "Campo vazio");
         }
-        // Limpando os campos para cadastrar o próximo aluno
 
     }
 
-    private boolean campovazio() {
-        ArrayList<TextField> fiscalizador = new ArrayList();
+    private boolean campovazio() { // Método que vai verificar se os campos estão vazios
+        ArrayList<TextField> fiscalizador = new ArrayList(); // Definindo um ArrayList para auxiliar
         fiscalizador.add(diaTextField);
         fiscalizador.add(nomeTextField);
         fiscalizador.add(sobrenomeTextField);
@@ -117,25 +122,26 @@ public class FXMLFormularioController implements Initializable {
         fiscalizador.add(nota1TextField);
         fiscalizador.add(nota2TextField);
         fiscalizador.add(nota3TextField);
-        for (int x = 0; x < fiscalizador.size(); x++) {
+        for (int x = 0; x < fiscalizador.size(); x++) { // Laço de repetição feito para percorrer todas as posições do ArrayList ja que o método size() retorna o tamanho do Array
             if (fiscalizador.get(x).getText() == null || fiscalizador.get(x).getText() == "" || fiscalizador.get(x).getText().isEmpty()) {
-                return true;
+                return true; // Nesse método queremos verificar se o campo está vazio,então se ele receber uma String vazia ou nula retornará true e a alerta aparecerá
             }
         }
         return false;
-    }
+    } // Fim do bloco referente ao Botão Cadastrar
 
     public void excluirButtonClicked() {
         if (controle.excluirAluno() && controle.getQuantidade() == 0) {
             impressaoTextArea.setText("");
-        } else if (!controle.excluirAluno()) {
-            JOptionPane.showMessageDialog(null, "Lista vazia");
-        } else {
+        } else if (controle.excluirAluno()) {
             proxButtonClicked();
+        } else {
+            JOptionPane.showMessageDialog(null, "Lista vazia");
         }
+
     }
 
-    public void anteButtonClicked() {
+    public void anteButtonClicked() { // Aqui ocorrerá as chamadas dos metódos feitos na ClasseBotao
         impressaoTextArea.setText(controle.getAlunoAnterior());
     }
 
@@ -153,7 +159,7 @@ public class FXMLFormularioController implements Initializable {
         return true;
     }
 
-    @Override
+    @Override // Método utiizado para adicionar itens ao ComboBox tendo como exemplo o pdf da Prática 05
     public void initialize(URL url, ResourceBundle rb) {
         cursoComboBox.getItems().addAll(
                 "Engenharia Elétrica",
